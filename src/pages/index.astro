@@ -1,10 +1,221 @@
 ---
 import "@/styles/globals.css";
-import Layout from '../layouts/Layout.astro';
+import "cal-sans";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import TextRotate from "@/components/fancy/text-rotate";
+import LetterSwapForward from "@/components/fancy/letter-swap-forward-anim";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import MobileMenu from "@/components/ui/mobile-menu";
+import { BlurFade } from "@/components/ui/blur-fade";
+
+import sjcet from "@/assets/sjcet.jpg";
+import bootcamp from "@/assets/bootcamp(white).png";
+
+import mentoring from "@/assets/entreprenuer.png";
+import bulb from "@/assets/bulb.png";
+import incubation from "@/assets/incubation.png";
+import networking from "@/assets/networking.png";
 ---
 
 <Layout>
+	<section
+		class="flex flex-col relative w-full h-screen text-white font-[Cal\ Sans]"
+	>
+		<nav
+			class="flex flex-row gap-2 p-6 md:p-11 md:px-32 justify-between items-center"
+		>
+			<Image src={bootcamp} alt="Bootcamp" class="w-36" />
+			<div class="hidden ml-auto md:flex flex-row gap-6 items-center">
+				<a href="#why">
+					<LetterSwapForward
+						label="WHY IEDC"
+						staggerFrom={"first"}
+						className="font-bold"
+						client:idle
+					/>
+				</a>
+				<a href="#events">
+					<LetterSwapForward
+						label="EVENTS"
+						staggerFrom={"first"}
+						className="font-bold"
+						client:idle
+					/>
+				</a>
+				<a href="#summit">
+					<LetterSwapForward
+						label="SUMMIT"
+						staggerFrom={"first"}
+						className="font-bold"
+						client:idle
+					/>
+				</a>
+				<a href="#execom">
+					<LetterSwapForward
+						label="EXECOM"
+						staggerFrom={"first"}
+						className="font-bold"
+						client:idle
+					/>
+				</a>
+				<a href="#about">
+					<LetterSwapForward
+						label="ABOUT US"
+						staggerFrom={"first"}
+						className="font-bold"
+						client:idle
+					/>
+				</a>
+				<a href="https://iedc-admin.vercel.app/">
+					<LetterSwapForward
+						label="LOGIN"
+						staggerFrom={"first"}
+						className="font-bold"
+						client:idle
+					/>
+				</a>
+			</div>
+			<div class="md:hidden">
+				<MobileMenu client:idle />
+			</div>
+		</nav>
+		<Image
+			src={sjcet}
+			alt="A nice picture of SJCET"
+			class="w-screen h-screen absolute -z-20 object-cover"
+		/>
+		<div
+			class="w-screen h-screen absolute -z-10 bg-gradient-to-b from-black/20 via-neutral-950/85 to-black"
+		>
+		</div>
+		<div
+			class="flex flex-col w-full h-full justify-center p-6 pt-0 md:pt-0 md:p-32"
+		>
+			<h1 class="text-4xl font-bold md:text-5xl">Discovering</h1>
+			<TextRotate
+				texts={["Technical", "Creative", "Innovative"]}
+				mainClassName="text-4xl font-bold text-green-500 md:text-5xl"
+				staggerFrom="first"
+				splitBy="characters"
+				rotationInterval={3000}
+				staggerDuration={0.02}
+				client:idle
+			/>
+			<h1 class="text-4xl font-bold md:text-5xl">Students among us.</h1>
+			<p>
+				Let's get your <span class="text-green-500 mt-3 text-lg">dreams</span> incubated
+			</p>
+			<a href="https://innovate.startupmission.in/#/register" class="mt-4">
+				<InteractiveHoverButton
+					className="text-black items-center bg-green-500"
+					client:idle
+				>
+					JOIN US
+				</InteractiveHoverButton>
+			</a>
+		</div>
+	</section>
+	<section
+		id="why"
+		class="w-full bg-white p-6 md:p-32 md:py-20 flex flex-col items-center gap-2 text-black"
+	>
+		<BlurFade className="flex flex-col gap-2" inView client:idle>
+			<h2 class="text-3xl font-bold text-center">
+				WHY <span class="text-green-500">IEDC</span>
+			</h2>
+			<p class="text-center">
+				Here students take their first step as innovators and entrepreneurs
+			</p>
+			<div class="flex flex-col md:flex-row gap-4 w-full">
+				<div
+					class="rounded-lg border border-neutral-300 flex flex-col p-4 items-center"
+				>
+					<Image src={mentoring} alt="Mentoring handshake" class="w-28" />
+					<h3 class="font-bold text-xl">MENTORING</h3>
+					<p class="text-sm text-center text-neutral-700">
+						Startup bootcamp also provides mentoring support to help the
+						students in developing innovative ideas, setting goals and exploring
+						careers which is best suited.
+					</p>
+				</div>
+				<div
+					class="rounded-lg border border-neutral-300 flex flex-col p-4 items-center"
+				>
+					<Image src={bulb} alt="Mentoring handshake" class="w-28" />
+					<h3 class="font-bold text-xl">INNOVATION</h3>
+					<p class="text-sm text-center text-neutral-700">
+						Startup bootcamp provides students with assistance in projects
+						through innovative ideas which can be utilised for future endeavours
+					</p>
+				</div>
+				<div
+					class="rounded-lg border border-neutral-300 flex flex-col p-4 items-center"
+				>
+					<Image src={networking} alt="Mentoring handshake" class="w-28" />
+					<h3 class="font-bold text-xl">NETWORKING</h3>
+					<p class="text-sm text-center text-neutral-700">
+						Startup bootcamp also helps students in connecting them with other
+						personalities to identify their potential and increase their
+						opportunities
+					</p>
+				</div>
+				<div
+					class="rounded-lg border border-neutral-300 flex flex-col p-4 items-center"
+				>
+					<Image src={incubation} alt="Mentoring handshake" class="w-28" />
+					<h3 class="font-bold text-xl">INCUBATION</h3>
+					<p class="text-sm text-center text-neutral-700">
+						Startup bootcamp provides incubation support to students by giving
+						opportunity to express their innovative ideas and make it work
+					</p>
+				</div>
+			</div>
+		</BlurFade>
+		<BlurFade className="flex flex-col gap-2" inView client:idle>
+			<h2 class="text-3xl font-bold text-center mt-10">
+				SJCET BOOTCAMP - <span class="text-green-500">IEDC</span>
+			</h2>
+			<div
+				class="p-4 flex flex-col border border-neutral-300 rounded-lg text-neutral-600 text-sm text-justify"
+			>
+				<b>The SJCET Startup Bootcamp- IEDC </b>(Innovation and Entrepreneurship
+				Development Centre) was set up on 9th March 2015 as a part of the Kerala
+				Startup Mission (KSUM) initiative to develop a startup culture amongst
+				students. The IEDCs are platforms set up in Engineering, Management,
+				Arts & Science Colleges and Polytechnics with an aim to provide students
+				an opportunity to experiment and innovate. KSUM has set up IEDCs in 226
+				institutions across the State which provide avenues for creative
+				students to learn, collaborate and transform their innovative ideas into
+				prototypes of viable products and services. IEDCs works as the first
+				launch pad for a student’s entrepreneurial journey and provide them with
+				access to cutting edge technology, world class infrastructure, high
+				quality mentorship, early risk capital and global exposure.
+			</div>
+			<div class="flex flex-col md:flex-row gap-2">
+				<div
+					class="p-4 flex flex-col items-center border border-neutral-300 rounded-lg text-neutral-600 text-sm text-justify"
+				>
+					<h1 class="text-xl font-bold">VISION</h1>
+					<p>
+						To create an innovation culture among Innovators by introducing them
+						the State-of-the-art technologies and positioning the Institution as
+						a Learning and Innovation Platform by delivering technically
+						competent and skilled Entrepreneur
+					</p>
+				</div>
+				<div
+					class="p-4 flex flex-col items-center border border-neutral-300 rounded-lg text-neutral-600 text-sm text-justify"
+				>
+					<h1 class="text-xl font-bold">MISSION</h1>
+					<p>
+						To create IEDC as an Innovation Platform and to create future
+						founders by promoting Innovation, Technology and Business Learning
+						among student community
+					</p>
+				</div>
+			</div>
+		</BlurFade>
+	</section>
 </Layout>
