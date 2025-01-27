@@ -6,31 +6,38 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "motion/react";
 import FeatureCard from "@/components/custom/FeatureCard";
 import FadeIn from "./custom/FadeIn";
+import Link from "next/link";
 
 const supporters = [
     {
         name: "Kerala Startup Mission",
         logo: "/company-logo/supporter-image-1.png",
+        link: "https://startupmission.kerala.gov.in/",
     },
     {
         name: "Department of Industries and Commerce Kerala",
         logo: "/company-logo/supporter-image-2.webp",
+        link: "https://industry.kerala.gov.in/",
     },
     {
         name: "Innovation and Entrepreneurship Development Centre",
         logo: "/company-logo/supporter-image-3.png",
+        link: "https://iedc.startupmission.in/",
     },
     {
         name: "Google Developer Student Clubs",
         logo: "/company-logo/supporter-image-4.png",
+        link: "https://gdsc.community.dev/st-josephs-college-of-engineering-and-technology-palai/",
     },
     {
         name: "TinkerHub",
         logo: "/company-logo/supporter-image-5.png",
+        link: "https://www.tinkerhub.org/",
     },
     {
         name: "GTech μLearn",
         logo: "/company-logo/supporter-image-6.png",
+        link: "https://mulearn.org/",
     },
 ];
 
@@ -46,7 +53,7 @@ export function ContentPage() {
     };
 
     return (
-        <main className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white" id="why-iedc">
             <motion.section
                 className="container mx-auto px-4 py-12 text-center"
                 initial={{ opacity: 0, y: -20 }}
@@ -98,7 +105,7 @@ export function ContentPage() {
                             <h2 className="text-3xl font-bold mb-8">
                                 SJCET BOOTCAMP - <span className="text-green-600">IEDC</span>
                             </h2>
-                            <BadgeCheck color="#14c756" className="mt-1 ml-1" />
+                            <BadgeCheck color="#fff" size="28px" className="mt-1 ml-1" fill="#14c756" />
                         </div>
                         <Card className="shadow-lg p-3 h-[100%]">
                             <CardContent className="p-6">
@@ -168,22 +175,24 @@ export function ContentPage() {
                                     visible: { opacity: 1, scale: 1 },
                                 }}
                             >
-                                <Card className="shadow-lg p-3 h-[100%] overflow-hidden">
-                                    <CardContent className="p-6 flex items-center justify-center h-48">
-                                        <Image
-                                            src={supporter.logo || "/placeholder.svg"}
-                                            alt={supporter.name}
-                                            width={200}
-                                            height={100}
-                                            className="object-contain"
-                                        />
-                                    </CardContent>
-                                </Card>
+                                <Link href={supporter.link}>
+                                    <Card className="shadow-lg p-3 h-[100%] cursor-pointer">
+                                        <CardContent className="p-6 flex items-center justify-center h-48">
+                                            <Image
+                                                src={supporter.logo}
+                                                alt={supporter.name}
+                                                width={400}
+                                                height={300}
+                                                className="object-contain"
+                                            />
+                                        </CardContent>
+                                    </Card>
+                                </Link>
                             </motion.div>
                         ))}
                     </motion.div>
                 </section>
             </motion.section>
-        </main>
+        </div>
     )
 }

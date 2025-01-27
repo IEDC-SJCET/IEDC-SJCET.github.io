@@ -32,7 +32,7 @@ export function HomePage() {
             <div className="relative z-10 container mx-auto px-4 py-20">
                 <div className="flex flex-col-reverse md:flex-row h-full">
                     <div className="flex-grow-1 flex flex-col justify-center mb-5 mb-md-0">
-                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
                             Discovering
                             <br />
                             <AnimatePresence mode="popLayout">

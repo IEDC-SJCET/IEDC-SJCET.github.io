@@ -3,14 +3,14 @@ import { HomePage } from "@/components/home";
 import { ContentPage } from "@/components/iedc";
 
 export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-  return (
-    <main>
-      <Navbar />
-      <HomePage />
-      <ContentPage />
-    </main>
-  )
+    return (
+        <main>
+            <Navbar />
+            <HomePage />
+            <ContentPage />
+        </main>
+    )
 }
 
