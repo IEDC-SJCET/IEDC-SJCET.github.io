@@ -1,33 +1,48 @@
-# 10 Year Anniversary Official Redesign
-we are planning a 10 year anniversary official redesign for the BOOTCAMP & IEDC Website
+# Astro Starter Kit: Basics
 
-Do these simple steps to prove your technical skills
+```sh
+npm create astro@latest -- --template basics
+```
 
-If your work is pretty cool, we'll approve the PR
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-### Task
-1. Fork this repository
-2. Go to [IEDC old website](https://github.com/IEDC-SJCET/IEDC)
-3. Read the code and understand first two section of website
-4. Migrate/Recreate it to your any favorite frontend tech stack (react, nextjs, vue, svelte, solidjs etc any)
-5. Create pull requests back to this repository
-6. Assign current CTO of IEDC [@rajatsandeepsen](https://github.com/rajatsandeepsen) as reviewer
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-> NB: don't migrate entire website, just one of two section from original is enough 
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
-### Extra Task (optional)
-Only those who got proper feedback from CTO need to complete these tasks.
+## 🚀 Project Structure
 
-1. Write Github Actions to deploy website to github pages
-2. Add (any) creative changes to website for the 10 year anniversary of Startup Bootcamp
+Inside of your Astro project, you'll see the following folders and files:
 
-> NB: Make sure the build process is configured on static build
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-### Need help?
-If you don't know how to do a step, just ask Chatgpt or any AI tools 
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-### Purpose of these tasks
-1. Proves you can code (with or without AI)
-2. Your knows a solid tech stack other than HTML/CSS/JS
-3. You have experience using Git/Github
-4. You have real experience of deploy a project
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
