@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { MoveRight, ChevronDown } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 export function HomePage() {
     const animateWords = ["Creative", "Technical", "Innovative"];
@@ -17,7 +17,7 @@ export function HomePage() {
             }, 500);
         }, 2000);
         return () => clearInterval(interval);
-    }, [])
+    }, []);
 
     return (
         <div
