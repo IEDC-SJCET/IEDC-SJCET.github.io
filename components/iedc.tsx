@@ -179,7 +179,7 @@ export function ContentPage() {
                                     <Card className="shadow-lg p-3 h-[100%] cursor-pointer">
                                         <CardContent className="p-6 flex items-center justify-center h-48">
                                             <Image
-                                                src={supporter.logo}
+                                                src={`/IEDC-SJCET.github.io/${supporter.logo}`}
                                                 alt={supporter.name}
                                                 width={400}
                                                 height={300}

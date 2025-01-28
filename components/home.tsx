@@ -23,7 +23,7 @@ export function HomePage() {
         <div
             className="relative min-h-screen flex items-center"
             style={{
-                backgroundImage: "url(/background.jpg)",
+                backgroundImage: "url(/IEDC-SJCET.github.io/background.jpg)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}

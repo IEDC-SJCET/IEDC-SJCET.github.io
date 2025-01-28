@@ -34,7 +34,7 @@ export function Navbar() {
         <nav className="absolute top-0 left-0 right-0 z-50 px-4 py-6">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <Link href="/" className="relative w-40 h-12">
-                    <Image src="/logo.png" alt="Boot Camp Logo" fill className="object-contain" />
+                    <Image src="/IEDC-SJCET.github.io/logo.png" alt="Boot Camp Logo" fill className="object-contain" />
                 </Link>
 
                 <div className="hidden md:flex items-center gap-8">
