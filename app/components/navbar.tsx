@@ -10,7 +10,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center relative w-[180px] h-[50px]">
             <Image
-              src="/IEDC-SJCET.github.io//images/logo.png"
+              src="/IEDC-SJCET.github.io/images/logo.png"
               alt="Boot Camp"
               fill
               className="object-contain brightness-200 filter"
