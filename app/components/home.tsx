@@ -41,7 +41,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/college.jpg"
+            src="/IEDC-SJCET.github.io/images/college.jpg"
             alt="SJCET Campus"
             fill
             className="object-cover brightness-[0.3]"
