@@ -56,7 +56,7 @@ export default function Hero() {
                     <span id="changetext" className="greencolor fw-bolder display-1"></span>
                   </div>
                   <h1 className="text-white fw-bolder display-1 mb-5">
-                    Students among us
+                    among us
                   </h1>
                   <div className="mt-4">
                     <h5 className="text-light fw-normal fs-3 mb-5" data-aos="fade-up" data-aos-duration="2500">
