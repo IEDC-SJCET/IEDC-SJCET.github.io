@@ -66,7 +66,7 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
         x: "100%",
         duration: 0.5,
         ease: "power4.out",
-        onComplete: () => gsap.set(menu, { display: "none" })
+        onComplete: () => { gsap.set(menu, { display: "none" }); return void 0; }
       })
     }
   }, [isOpen])
