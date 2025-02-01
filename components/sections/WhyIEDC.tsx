@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+const basePath = '/IEDC-SJCET.github.io';
+
 export default function WhyIEDC() {
   const imagePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   

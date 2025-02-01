@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="container mt-md-3">
         <Link href="/" className="navbar-brand lead fs-3 fw-bolder m-0 p-0 col-4 col-md-2">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/bootcamp-white.png`}
+            src={`/IEDC-SJCET.github.io/bootcamp-white.png`}
             alt="Bootcamp"
             className="img-fluid"
             width={180}
