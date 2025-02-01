@@ -29,16 +29,16 @@ export async function fetchEvents(): Promise<(Event | { pattern: "cross" | "radi
     const formattedDate = new Date(eventStartAt.seconds * 1000).toLocaleDateString()
 
     return {
-      title: data.EventName || "Untitled Event",
-      date: formattedDate || "No date provided",
-      image: data.IMG_URL || "",
+      title: data.EventName as string,
+      date: formattedDate,
+      image: data.IMG_URL as string,
     }
   })
 
   // Interleave empty pattern events
   const interleavedEvents = events.flatMap((event, index) => [
     event,
-    { pattern: (index % 2 === 0 ? "cross" : "radial") as "cross" | "radial" }, // Ensure correct type for pattern
+    { pattern: index % 2 === 0 ? "cross" : "radial" as "cross" | "radial" }, // Ensure correct type for pattern
   ])
 
   return interleavedEvents

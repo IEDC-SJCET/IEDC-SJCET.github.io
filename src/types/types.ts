@@ -1,19 +1,19 @@
 // src/types.ts
 export interface Event {
-    title: string
-    date: string
-    pattern?: "radial" | "diagonal"
+    title?: string | undefined
+    date?: string | undefined
+    pattern?: "radial" | "cross" | "diagonal"
     image?: string
   }
   
   export interface EventCardProps {
-    title: string
-    date: string
-    pattern?: "radial" | "diagonal"
+    title: string | undefined
+    date: string | undefined
+    pattern?: "radial" | "cross" | "diagonal"
     image?: string
   }
   
   export type GeometricPatternProps = {
-    variant?: "radial" | "diagonal"
+    variant?: "radial" | "diagonal" | "cross"
   }
   

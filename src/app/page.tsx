@@ -75,13 +75,14 @@ export default function Home() {
   return (
     <main
       ref={mainRef}
-      className="flex min-h-screen w-full flex-col items-center justify-center"
+      className="flex min-h-screen flex-col items-center justify-center "
     >
       <GridPattern />
       <section
         id="hero"
         className="container mx-auto flex h-screen w-full flex-col items-center justify-center px-4"
       >
+
         <h1 className="lg:leading-tighter xl:leading-tighter mb-4 text-balance text-center font-trap text-4xl font-bold leading-tight sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight lg:text-7xl xl:text-8xl">
           <span className="hero-text mb-2 block">Discovering</span>
           <WordRotate
@@ -91,9 +92,16 @@ export default function Home() {
           <span className="hero-text block">Students Among Us</span>
         </h1>
         <p className="hero-text mb-6 text-center text-lg sm:text-xl md:text-2xl">
-          Let's Get Your Dreams Incubated
+          Let&apos;s Get Your Dreams Incubated
         </p>
-        <button onClick={() => { window.location.href = "https://innovate.startupmission.in/#/register"; }} type="button" className="hero-button flex items-center justify-center rounded-full border-2 border-black px-6 py-3 text-base transition-colors duration-200 ease-in-out hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-white dark:hover:bg-white dark:hover:text-black sm:text-lg md:text-xl">
+        <button
+          onClick={() => {
+            window.location.href =
+              "https://innovate.startupmission.in/#/register";
+          }}
+          type="button"
+          className="hero-button flex items-center justify-center rounded-full border-2 border-black px-6 py-3 text-base transition-colors duration-200 ease-in-out hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:border-white dark:hover:bg-white dark:hover:text-black sm:text-lg md:text-xl"
+        >
           Join Us
         </button>
         <div className="absolute bottom-0 left-0 right-0 h-auto w-full bg-[#4d17f5]">
@@ -105,7 +113,7 @@ export default function Home() {
       </section>
       <section
         id="whyus"
-        className="-mt-16 animate-section relative flex min-h-screen w-full flex-col items-center justify-center bg-[#faa0cf]"
+        className="animate-section relative -mt-16 flex min-h-screen w-full flex-col items-center justify-center bg-[#faa0cf]"
       >
         <div
           className="absolute inset-0 h-full w-full"
@@ -152,7 +160,7 @@ export default function Home() {
                   which provide avenues for creative students to learn,
                   collaborate and transform their innovative ideas into
                   prototypes of viable products and services. IEDCs works as the
-                  first launch pad for a student's entrepreneurial journey and
+                  first launch pad for a student&apos;s entrepreneurial journey and
                   provide them with access to cutting edge technology, world
                   class infrastructure, high quality mentorship, early risk
                   capital and global exposure.
@@ -221,7 +229,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="animate-section" >
+      <div className="animate-section">
         <CommunityPartners />
       </div>
       <div className="animate-section w-full" id="events">
