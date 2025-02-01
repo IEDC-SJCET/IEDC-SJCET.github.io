@@ -1,27 +1,131 @@
 "use client"
-import type React from "react"
+
 import { useEffect, useState } from "react"
 import Logo from "../Logo"
 import { gsap } from "gsap"
 
-function handleScroll(e: React.MouseEvent<HTMLAnchorElement>, targetId: string) {
-  e.preventDefault()
-  const target = document.getElementById(targetId)
-  if (target) {
-    target.scrollIntoView({ behavior: "smooth" })
+type NavLink = {
+  href: string
+  label: string
+  isExternal?: boolean
+}
+
+const NAV_LINKS: NavLink[] = [
+  { href: "#home", label: "Home" },
+  { href: "#events", label: "Events" },
+  { href: "#execom", label: "Execom" },
+  { href: "#history", label: "History" },
+  { href: "https://iedc-admin.vercel.app/", label: "Login", isExternal: true }
+]
+
+const NavLink = ({ 
+  href, 
+  label, 
+  isExternal, 
+  onClick,
+  className = ""
+}: NavLink & { 
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
+  className?: string 
+}) => (
+  <a
+    href={href}
+    className={`p-4 hover:text-gray-300 transition-colors ${className}`}
+    onClick={!isExternal ? (e) => onClick?.(e) : undefined}
+  >
+    {label}
+  </a>
+)
+
+const MobileMenuButton = ({ onClick, isOpen }: { onClick: () => void; isOpen: boolean }) => (
+  <button 
+    onClick={onClick} 
+    className="p-4 mr-2 md:hidden"
+    aria-label={isOpen ? "Close menu" : "Open menu"}
+  >
+    <span className="text-2xl">{isOpen ? "×" : "☰"}</span>
+  </button>
+)
+
+const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  useEffect(() => {
+    const menu = document.querySelector(".mobile-menu")
+    if (!menu) return
+
+    if (isOpen) {
+      // Reset transform before animation to prevent flicker
+      gsap.set(menu, { x: "100%" })
+      gsap.to(menu, {
+        x: 0,
+        duration: 0.5,
+        ease: "power4.in",
+        display: "flex"
+      })
+    } else {
+      gsap.to(menu, {
+        x: "100%",
+        duration: 0.5,
+        ease: "power4.out",
+        onComplete: () => gsap.set(menu, { display: "none" })
+      })
+    }
+  }, [isOpen])
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith('http')) {
+      e.preventDefault()
+      const targetId = href.replace('#', '')
+      const target = document.getElementById(targetId)
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" })
+        onClose()
+      }
+    }
   }
+
+  return (
+    <div className="mobile-menu fixed top-0 right-0 w-full h-full bg-black text-white 
+                    flex-col justify-center items-center z-50 overflow-hidden hidden">
+      <div className="absolute top-4 right-4">
+        <button 
+          onClick={onClose}
+          className="p-4 text-2xl"
+          aria-label="Close menu"
+        >
+          ×
+        </button>
+      </div>
+      <div className="flex flex-col items-center space-y-4">
+        {NAV_LINKS.map(({ href, label, isExternal }) => (
+          <NavLink
+            key={href}
+            href={href}
+            label={label}
+            isExternal={isExternal}
+            onClick={(e) => handleClick(e, href)}
+            className="text-2xl"
+          />
+        ))}
+      </div>
+    </div>
+  )
 }
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev)
-  }
+  useEffect(() => {
+    // Prevent body scroll when menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
 
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isMenuOpen])
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth"
@@ -30,115 +134,50 @@ const Navbar = () => {
     }
   }, [])
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      gsap.fromTo(
-        ".mobile-menu",
-        { x: "100%" },
-        { x: 0, duration: 0.5, ease: "power4.out" }
-      )
-    } else {
-      gsap.fromTo(
-        ".mobile-menu",
-        { x: 0 },
-        { x: "100%", duration: 0.5, ease: "power4.out" }
-      )
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith('http')) {
+      e.preventDefault()
+      const targetId = href.replace('#', '')
+      const target = document.getElementById(targetId)
+      target?.scrollIntoView({ behavior: "smooth" })
     }
-  }, [isMenuOpen])
+  }
 
   return (
-    <nav className="flex justify-between items-center h-16 bg-black text-white relative shadow-sm font-mono">
-      <div className="pl-8">
-        <a href="#home" className="text-2xl font-bold" onClick={(e) => handleScroll(e, "home")}>
-          <Logo size={200} />
-        </a>
-      </div>
-      
-      <div className="pr-8 text-xl hidden md:flex">
-        <a href="#home" className="p-4" onClick={(e) => handleScroll(e, "home")}>
-          Home
-        </a>
-        <a href="#events" className="p-4" onClick={(e) => handleScroll(e, "events")}>
-          Events
-        </a>
-        <a href="#execom" className="p-4" onClick={(e) => handleScroll(e, "execom")}>
-          Execom
-        </a>
-        <a href="#history" className="p-4" onClick={(e) => handleScroll(e, "history")}>
-          History
-        </a>
-        <a href="https://iedc-admin.vercel.app/" className="p-4">
-          Login
+    <nav className="fixed top-0 left-0 right-0 flex items-center justify-between h-16 bg-black text-white shadow-sm font-mono z-40">
+      <div className="flex items-center">
+        <a 
+          href="#home" 
+          className="p-4"
+          onClick={(e) => handleNavClick(e, "#home")}
+        >
+          <Logo size={150} />
         </a>
       </div>
 
-      {/* Hamburger Menu for Mobile */}
-      <div className="md:hidden pr-8">
-        <button onClick={toggleMenu} className="text-2xl">
-          &#9776;
-        </button>
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex items-center">
+        {NAV_LINKS.map(({ href, label, isExternal }) => (
+          <NavLink
+            key={href}
+            href={href}
+            label={label}
+            isExternal={isExternal}
+            onClick={(e) => handleNavClick(e, href)}
+            className="text-lg"
+          />
+        ))}
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`mobile-menu fixed top-0 right-0 w-full h-full bg-black text-white flex flex-col justify-center items-center z-50 ${
-          isMenuOpen ? "block" : "hidden"
-        }`}
-      >
-        <button
-          onClick={closeMenu}
-          className="absolute top-8 right-8 text-3xl text-white"
-        >
-          &times;
-        </button>
-        <a
-          href="#home"
-          className="p-6 text-2xl"
-          onClick={(e) => {
-            handleScroll(e, "home")
-            closeMenu()
-          }}
-        >
-          Home
-        </a>
-        <a
-          href="#events"
-          className="p-6 text-2xl"
-          onClick={(e) => {
-            handleScroll(e, "events")
-            closeMenu()
-          }}
-        >
-          Events
-        </a>
-        <a
-          href="#execom"
-          className="p-6 text-2xl"
-          onClick={(e) => {
-            handleScroll(e, "execom")
-            closeMenu()
-          }}
-        >
-          Execom
-        </a>
-        <a
-          href="#history"
-          className="p-6 text-2xl"
-          onClick={(e) => {
-            handleScroll(e, "history")
-            closeMenu()
-          }}
-        >
-          History
-        </a>
-        <a
-          href="https://iedc-admin.vercel.app/"
-          className="p-6 text-2xl"
-          onClick={closeMenu}
-        >
-          Login
-        </a>
-      </div>
+      {/* Mobile Navigation */}
+      <MobileMenuButton
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        isOpen={isMenuOpen}
+      />
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+      />
     </nav>
   )
 }
