@@ -4,11 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
-  env: {
-    NEXT_PUBLIC_BASE_PATH: '/IEDC-SJCET.github.io',
-  },
+  basePath: '/IEDC-SJCET.github.io',
+  assetPrefix: '/IEDC-SJCET.github.io',
 };
 
 export default nextConfig;
