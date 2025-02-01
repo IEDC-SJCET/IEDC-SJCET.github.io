@@ -8,4 +8,4 @@ const nextConfig = {
   assetPrefix: '/IEDC-SJCET.github.io',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
