@@ -24,7 +24,7 @@ export default function WhyIEDC() {
               <div className="text-center">
                 <Image 
                   className="mb-3" 
-                  src="/entreprenuer.png" 
+                  src="/IEDC-SJCET.github.io/entreprenuer.png"
                   alt="Mentoring" 
                   width={100} 
                   height={100}
@@ -41,7 +41,7 @@ export default function WhyIEDC() {
               <div className="text-center">
                 <Image 
                   className="mb-3" 
-                  src="/bulb.png" 
+                  src="/IEDC-SJCET.github.io/bulb.png"
                   alt="Innovation" 
                   width={100} 
                   height={100}
@@ -58,7 +58,7 @@ export default function WhyIEDC() {
               <div className="text-center">
                 <Image 
                   className="mb-3" 
-                  src="/startup.png" 
+                  src="/IEDC-SJCET.github.io/startup.png"
                   alt="Startup Support" 
                   width={100} 
                   height={100}
@@ -75,7 +75,7 @@ export default function WhyIEDC() {
               <div className="text-center">
                 <Image 
                   className="mb-3" 
-                  src="/network.png" 
+                  src="/IEDC-SJCET.github.io/network.png" 
                   alt="Networking" 
                   width={100} 
                   height={100}
@@ -92,7 +92,7 @@ export default function WhyIEDC() {
               <div className="text-center">
                 <Image 
                   className="mb-3" 
-                  src="/incubation.png" 
+                  src="/IEDC-SJCET.github.io/incubation.png" 
                   alt="Incubation" 
                   width={100} 
                   height={100}
