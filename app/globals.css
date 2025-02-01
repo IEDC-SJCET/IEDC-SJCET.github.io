@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  min-height: 100vh;
+}
+
+.greencolor {
+  color: #00ff00 !important;
+}
+
+.homepage {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.whyiedcimg {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.card {
+  background: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover .whyiedcimg {
+  transform: scale(1.1);
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #00ff00 transparent transparent transparent;
+}
+
+@keyframes lds-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#down-arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  animation: bounce 2s infinite;
+  opacity: 0.8;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.fs-7 {
+  font-size: 0.9rem;
+}
+
+#bgdots {
+  background-color: black;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.lh-lg {
+  line-height: 1.8;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #00ff00;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.conbox {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  left: 50%;
+}
+
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+.form-field {
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 5px;
+  color: white;
+}
+
+.form-field:focus {
+  outline: none;
+  border-color: #00ff00;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px;
+  }
+  
+  .conbox {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  .right {
+    left: 0%;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hover-card {
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.text-4xl {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-gray-600 {
+  color: #4B5563;
+}
+
+.bg-gray-50 {
+  background-color: #F9FAFB;
+  border-top: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.py-28 {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.navbar {
+  padding: 1.5rem 0;
+  background: transparent;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.section-margin {
+  margin: 6rem 0;
+}
+
+.mt-n5 {
+  margin-top: -3rem;
+}
+
+.hero-wrapper {
+  min-height: 100vh;
+}
+
+.hero-content {
+  margin-top: -5vh;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  line-height: 1.2;
+}
+
+.changetext-wrapper {
+  min-height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#changetext {
+  display: inline-block;
+  min-width: 10ch;
+}
+
+.py-8 {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.why-iedc-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-iedc-section {
+  margin-top: 4rem;
+  padding: 8rem 0;
+}
+
+.card {
+  margin-bottom: 1rem;
+}
+
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1,
+  #changetext {
+    font-size: 3rem !important;
+  }
+  
+  .hero-content {
+    margin-top: 0;
+  }
+  
+  .changetext-wrapper {
+    min-height: 4rem;
+  }
+  
+  .py-8 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem !important;
+  }
+}
