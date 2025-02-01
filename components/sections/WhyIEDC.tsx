@@ -1,6 +1,8 @@
 import Image from 'next/image';
 
 export default function WhyIEDC() {
+  const imagePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   return (
     <>
       {}

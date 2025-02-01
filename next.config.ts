@@ -3,14 +3,12 @@ const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
   },
-  basePath: '/IEDC-SJCET.github.io',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/IEDC-SJCET.github.io',
+  },
 };
 
 export default nextConfig;
