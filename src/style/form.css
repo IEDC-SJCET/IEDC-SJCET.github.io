@@ -1,0 +1,172 @@
+.form-field {
+  height: 46px;
+  border: none;
+  border-left: 3px solid var(--green);
+  padding: 0 16px;
+  color: white;
+  outline: 0;
+  background: rgba(48, 48, 48, 0.536);
+  transition: 0.2s;
+}
+
+.form-field:hover,
+.form-field:focus {
+  color: white;
+  background: rgb(48, 48, 48);
+}
+
+textarea {
+  resize: none;
+}
+
+.newFormField {
+  height: 46px;
+  border: none;
+  border-radius: 6px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1254901961) !important;
+  padding: 0 16px;
+  color: #000;
+  outline: 0;
+  background-color: #fff;
+  transition: 0.2s;
+}
+
+.choice {
+  padding: 16px 16px;
+  min-height: 46px;
+  border: none;
+  border-radius: 6px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1254901961) !important;
+  color: #000;
+  outline: 0;
+  background-color: #fff;
+  transition: 0.2s;
+}
+
+.choice span {
+  color: rgba(0, 0, 0, 0.5019607843);
+}
+
+.choice div {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 6px;
+       column-gap: 6px;
+}
+
+.formRound {
+  border-radius: 4px !important;
+}
+
+.newFormField:hover,
+.newFormField:focus {
+  color: #000;
+}
+
+.newFormField:required:valid {
+  background: url("/src/media/check.svg") no-repeat 95% 50% var(--lightgreen);
+  background-size: 25px;
+  color: #000;
+}
+
+.newFormField:required:disabled {
+  background: url("/src/media/check.svg") no-repeat 95% 50% var(--lightgreen);
+  background-size: 25px;
+  color: #000;
+}
+
+.newFormField:required:focus:valid {
+  background-color: var(--lightgreen);
+}
+
+.newFormField:required:focus:invalid {
+  background: url("/src/media/exclamation.svg") no-repeat 95% 50% #fff;
+  background-size: 25px;
+}
+
+label {
+  padding-left: 3px;
+  color: #000;
+  font-weight: bolder;
+  text-align: left;
+  font-size: 1rem;
+  font-family: "Dm Sans", sans-serif;
+}
+
+label + p {
+  padding-left: 3px;
+}
+
+.req::after {
+  content: " *";
+  color: var(--green);
+}
+
+input[type=checkbox] {
+  accent-color: var(--green);
+}
+
+input[type=radio] {
+  accent-color: var(--green);
+}
+
+input[type=radio]:checked ~ span {
+  color: var(--green);
+}
+
+.showWidth {
+  max-width: 500px;
+}
+
+.drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  border-style: dashed;
+  min-height: 100px;
+}
+
+.drop-zone__input {
+  opacity: 0;
+}
+
+.drop-zone__thumb {
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.drop-zone__thumb::after {
+  content: attr(data-label);
+  color: var(--dark);
+  padding: 5px;
+  width: 100%;
+  height: 200px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.panelDropZone {
+  width: 100%;
+  min-height: 150px !important;
+}
+
+.textAreaField {
+  border: none;
+  outline: 1px solid rgba(0, 0, 0, 0.1254901961) !important;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+.textAreaField:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.1254901961) !important;
+}
+.textAreaField:required:valid {
+  background-color: var(--lightgreen);
+}/*# sourceMappingURL=form.css.map */

@@ -1,0 +1,16 @@
+.card-body {
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .boxDesign {
+    height: 400px;
+    width: 400px;
+  }
+}
+@media (max-width: 768px) {
+  .boxDesign {
+    height: auto;
+    width: 100%;
+  }
+}/*# sourceMappingURL=eventfeed.css.map */
