@@ -75,6 +75,7 @@ export default function Hero() {
 
         {}
         {showAnniversaryBadge && (
+         <a href="https://www.instagram.com/sjcetbootcamp/" target="_blank" style={{ textDecoration: 'none' }}>
           <div className="anniversary-badge" style={{
             position: 'absolute',
             top: '20px',
@@ -87,11 +88,11 @@ export default function Hero() {
             zIndex: 10,
             animation: 'badgePop 0.5s ease-out'
           }}>
-            <a href="https://www.instagram.com/sjcetbootcamp/" target="_blank" style={{ textDecoration: 'none' }}>
             <span className="text-white fw-bold">
               Celebrating 10 Years!
-            </span></a>
+            </span>
           </div>
+         </a>
         )}
 
         <div id="homepage" className="homepage vh-100">
