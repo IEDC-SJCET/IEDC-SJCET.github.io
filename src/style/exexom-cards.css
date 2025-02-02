@@ -2,6 +2,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .team-lead > span {
   background-color: var(--green);
   height: 80px;
@@ -17,32 +18,92 @@
   position: relative;
   overflow: hidden;
   border-radius: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for scaling and shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Initial shadow */
 }
 
 .card-body {
   position: relative;
 }
+
 .card-body > .card-text {
   z-index: 2;
 }
 
 .card-img-overlay {
   background: rgba(0, 0, 0, 0);
-  transition: 0.3s;
+  transition: background 0.3s; /* Change transition for background */
 }
-.card-img-overlay > a, .card-img-overlay > p, .card-img-overlay > button {
+
+.card-img-overlay > a,
+.card-img-overlay > p,
+.card-img-overlay > button {
   margin: auto;
   color: white;
   visibility: hidden;
-  font-size: 0px;
-  transition: 0.3s;
+  font-size: 0px; /* Initially hidden */
+  transition: visibility 0.3s, font-size 0.3s; /* Smooth transition for visibility and font size */
 }
 
 .card:hover > .card-img-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
-.card:hover > .card-img-overlay > a, .card:hover > .card-img-overlay > p, .card:hover > .card-img-overlay > button {
-  visibility: visible;
+
+.card:hover > .card-img-overlay > a,
+.card:hover > .card-img-overlay > p,
+.card:hover > .card-img-overlay > button {
+  visibility: visible; /* Make visible on hover */
   color: white;
-  font-size: 25px;
-}/*# sourceMappingURL=exexom-cards.css.map */
+  font-size: 25px; /* Increase font size on hover */
+}
+
+/* Image hover effect */
+.image-hover {
+    filter: blur(2px); /* Initial blur effect */
+    transition: filter 0.5s ease, transform 0.5s ease; /* Smooth transition for filter and transform */
+}
+
+#EXECOM:hover .image-hover {
+    filter: blur(0); /* Clear the image on hover */
+}
+
+/* Card enlargement effect on hover */
+.card:hover {
+    transform: scale(1.05); /* Enlarge the card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Grow the shadow on hover */
+}
+
+/* Glowing border effect */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -5px; 
+    left: -5px; 
+    right: -5px; 
+    bottom: -5px; 
+    border-radius: inherit; 
+    background-color: transparent; 
+    box-shadow: inset 0 0 10px rgba(255,255,255,0), inset -5px -5px rgba(255,255,255,0); 
+    transition: box-shadow .3s ease-in-out; 
+    z-index: -1; /* Place behind the card content */
+}
+
+.card:hover::before {
+    animation: glow-border-animation 1s forwards; /* Trigger animation on hover */
+}
+
+/* Keyframes for glow animation */
+@keyframes glow-border-animation {
+    from {
+        box-shadow:
+            inset -5px -5px rgb(247, 251, 0),
+            inset -10px -10px rgb(247, 251, 0),
+            inset -15px -15px rgb(247, 251, 0);
+    }
+    to {
+        box-shadow:
+            inset -5px -5px rgba(0, 0, 0, 0.1),
+            inset -10px -10px rgba(255,255,255,.05),
+            inset -15px -15px rgba(255,255,255,.02);
+    }
+}
