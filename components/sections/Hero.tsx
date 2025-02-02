@@ -87,7 +87,7 @@ export default function Hero() {
             zIndex: 10,
             animation: 'badgePop 0.5s ease-out'
           }}>
-            <a href="https://www.instagram.com/sjcetbootcamp/">
+            <a href="https://www.instagram.com/sjcetbootcamp/" target="_blank" style={{ textDecoration: 'none' }}>
             <span className="text-white fw-bold">
               Celebrating 10 Years!
             </span></a>
