@@ -87,9 +87,10 @@ export default function Hero() {
             zIndex: 10,
             animation: 'badgePop 0.5s ease-out'
           }}>
+            <a href="https://www.instagram.com/sjcetbootcamp/">
             <span className="text-white fw-bold">
               Celebrating 10 Years!
-            </span>
+            </span></a>
           </div>
         )}
 
@@ -103,7 +104,7 @@ export default function Hero() {
               <div className="col-lg-8">
                 <div className="hero-content" style={{ marginTop: '-80px' }}>
                   <h1 className="text-white fw-bolder display-1 mb-2" data-aos="fade-up" data-aos-duration="2000">
-                    A Decade of
+                    A Decade of Building
                   </h1>
                   <div className="mb-2">
                     <span id="changetext" className="greencolor fw-bolder display-1"></span>
