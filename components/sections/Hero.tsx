@@ -88,7 +88,7 @@ export default function Hero() {
             animation: 'badgePop 0.5s ease-out'
           }}>
             <span className="text-white fw-bold">
-              Celebrating <span id="yearCounter">0</span> Years!
+              Celebrating 10 Years!
             </span>
           </div>
         )}
