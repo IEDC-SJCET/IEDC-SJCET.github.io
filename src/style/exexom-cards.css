@@ -107,3 +107,39 @@
             inset -15px -15px rgba(255,255,255,.02);
     }
 }
+
+
+.iedc-link {
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  color: black;
+  transition: transform 0.3s ease-in-out;
+}
+
+.iedc-link::before {
+  content: attr(data-text);
+  content: "IEDC";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(0, 0, 0), rgb(9, 255, 0));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 0.5s ease-in-out;
+}
+
+.iedc-link:hover {
+  transform: scale(1.2);
+}
+
+.iedc-link:hover::before {
+  width: 100%;
+}
