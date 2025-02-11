@@ -15,7 +15,7 @@ const Navbar = () => {
 
     const sidebar = {
         open: (height = 1000) => ({
-            clipPath: `circle(${height * 2 + 200}px at 100% 0px)`,
+            clipPath: `circle(${height * 3 + 200}px at 100% 0px)`,
             transition: {
                 type: "spring",
                 stiffness: 20,
@@ -65,7 +65,7 @@ const Navbar = () => {
                                 <span className='text-4xl sm:flex hidden '>Close</span> <X size={40} />
                             </button>
                         </div>
-                        <Navigation />
+                        <Navigation  toggle={toggleOpen} />
                         <div className="follow">
                             <h2>Follow us on</h2>
                             <div className="flex text-secondary-foreground/30 text-4xl gap-5 mt-3">
