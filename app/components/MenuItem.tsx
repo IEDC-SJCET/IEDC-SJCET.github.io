@@ -23,7 +23,7 @@ const variants = {
 // const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
 const Links = [
   {
-    title: 'Home',
+    title: 'HOME',
     link: '#'
   },
   {
@@ -36,31 +36,35 @@ const Links = [
   },
   {
     title: 'CONTACT',
-    link: '/'
+    link: '/#contact'
+  },
+  {
+    title: 'ADMIN',
+    link: 'https://iedc-admin.vercel.app/'
   },
   {
     title: 'JOIN US',
-    link: '/'
+    link: 'https://innovate.startupmission.in/#/register'
   }
 ]
-export const MenuItem = ({ i ,toggleon}: { i: number, toggleon: Cycle}) => {
+export const MenuItem = ({ i, toggleon }: { i: number, toggleon: Cycle }) => {
   // const style = { border: `1px solid rgba(0,0,0,0.2)` };
   return (
     <motion.li
       variants={variants}
       whileTap={{ scale: 0.90 }}
       transition={{
-        duration:0.1,
-        stiffness:1,
+        duration: 0.1,
+        stiffness: 1,
       }}
-      whileHover={{ x:20 }}
+      whileHover={{ x: 20 }}
       className="hover:border-b-[0.01rem] w-full
       border-b-[0.01rem] hover:border-zinc-400 border-zinc-200 sm:mt-3 mt-6"
     >
       {/* <div className="icon-placeholder" style={style} /> */}
-      <Link onClick={()=>toggleon()} href={Links[i].link} className=" text-black w-full md:text-7xl text-5xl mb-5">
+      <Link onClick={() => toggleon()} href={Links[i].link} target={Links[i].link.startsWith("http") ? "_blank" : undefined} className=" text-black w-full md:text-7xl text-5xl mb-5">
         <span className="inline-flex items-end gap-2">
-        {Links[i].title}<Dot />
+          {Links[i].title}<Dot />
         </span>
       </Link>
       {/* <HyperText>Hover Me!</HyperText>; */}

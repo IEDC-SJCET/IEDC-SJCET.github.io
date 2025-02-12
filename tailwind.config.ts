@@ -62,9 +62,18 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		animation: {
-  			'shiny-text': 'shiny-text 8s infinite'
+  			'shiny-text': 'shiny-text 8s infinite',
+			'fade-in': 'fade-in 1s ease-in-out',
   		},
   		keyframes: {
+			'fade-in': {
+  				'0%': {
+  					opacity: '0'
+  				},
+  				'100%': {
+  					opacity: '1'
+  				}
+  			},
   			'shiny-text': {
   				'0%, 90%, 100%': {
   					'background-position': 'calc(-100% - var(--shiny-width)) 0'

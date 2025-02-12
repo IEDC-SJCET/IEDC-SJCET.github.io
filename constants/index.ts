@@ -7,6 +7,20 @@
 //     registerLastDate:'',
 //     eventDate:'',
 // }
+
+type Event = {
+    title: string,
+    description: string,
+    url: string,
+    asp: number,
+    status: boolean,
+    image: string,
+    startDate: string,
+    Venue: string,
+    registerLastDate: string,
+    eventDate: string,
+}
+
 export const EVENTS = [
     {
         title: 'Wednesday Cafe with Shaheen Hyder',
@@ -68,4 +82,4 @@ export const EVENTS = [
         registerLastDate: '',
         eventDate: '25-01-2024',
     },
-]
+] satisfies Event[]

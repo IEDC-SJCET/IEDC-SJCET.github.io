@@ -36,6 +36,9 @@ const Partners = () => {
                         <BlurContent>
                             <Image src={'/logo6.png'} className='w-[250px]' alt='' width={700} height={700} />
                         </BlurContent>
+                        <BlurContent>
+                            <Image src={'/nexus.svg'} className='w-[150px]' alt='' width={700} height={700} />
+                        </BlurContent>
                     </div>
                 </div>
             </div>
