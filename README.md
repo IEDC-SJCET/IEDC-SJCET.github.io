@@ -1,5 +1,8 @@
+### Redesigned version hosted on Vercel link here
+Go to [Hosted New Website](https://iedc-bootcamp.vercel.app/)
 # 10 Year Anniversary Official Redesign
 we are planning a 10 year anniversary official redesign for the BOOTCAMP & IEDC Website
+
 
 Do these simple steps to prove your technical skills
 
