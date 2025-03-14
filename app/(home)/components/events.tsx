@@ -17,7 +17,7 @@ const EventsHome = () => {
     return (
         <div className="pt-20 pb-10">
             <div className='screen sm:px-10 px-5'>
-                <h4 className='text-7xl text-white p-0 m-0'><span className='font-semibold text-primary'>BOOTCAMP</span> EVENTS</h4>
+                <h4 className='text-7xl text-white p-0 m-0'><span className='font-semibold sm:text-7xl text-6xl text-primary'>BOOTCAMP</span> EVENTS</h4>
             </div>
             <Carousel  />
         </div>

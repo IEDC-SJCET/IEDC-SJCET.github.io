@@ -5,6 +5,7 @@ import SplitText from '@/app/components/SplitText';
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
+import HeroAnimation from './animation';
 
 const handleAnimationComplete = () => {
     console.log('All letters have animated!');
@@ -51,7 +52,7 @@ export default function Hero() {
                     scale={1.4}
                     threshold={0.2}
                 >
-                    <h2 className='md:text-7xl sm:text-6xl text-6xl mb-10 px-10 text-start font-regular p-0 mt-[-10px]'>
+                    <h2 className='md:text-7xl sm:text-6xl text-5xl mb-10 px-10 text-start font-regular p-0 mt-[-10px]'>
                         Discovering
                         <br />
                         <span className='font-semibold text-primary tracking-tight'>
@@ -92,7 +93,8 @@ export default function Hero() {
                 </FadeContent>
 
             </div>
-            <Image className='absolute z-[1] pt-[150px] wiggle' src={'/airplane.png'} alt='' height={2000} width={2000} />
+            <HeroAnimation />
+            {/* <Image className='absolute z-[1] pt-[150px] wiggle' src={'/airplane.png'} alt='' height={2000} width={2000} /> */}
         </div>
     </section>
 }
