@@ -48,7 +48,7 @@ body {
 
 @layer base {
   .screen {
-    @apply max-w-[1700px] w-full mx-auto;
+    @apply w-full mx-auto;
   }
 
   :root {
@@ -111,9 +111,6 @@ body {
     @apply bg-black text-foreground;
   }
 
-  .logo-icon {
-    @apply hover:text-primary;
-  }
   .footer-link{
     @apply flex gap-2 items-center;
   }
