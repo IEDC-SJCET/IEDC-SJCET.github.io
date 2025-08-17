@@ -34,49 +34,73 @@ const Execom = () => {
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/CCO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/INTRO2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/CEO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/NODALOFFICER2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/CFO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/COMMUNITY2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/CMO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/OPERATIONS2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/COO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/MARKETING2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/CSO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/TECH2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/CTO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/CREATIVE2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
           variants={listItem} className="">
-          <Image src={'/CVO2024.png'} alt='' width={500} height={700} />
+          <Image src={'/FINANCE2025.jpg'} alt='' width={500} height={700} />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={listItem} className="">
+          <Image src={'/IPRL2025.jpg'} alt='' width={500} height={700} />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={listItem} className="">
+          <Image src={'/STUDENT1-2025.jpg'} alt='' width={500} height={700} />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={listItem} className="">
+          <Image src={'/STUDENT2-2025.jpg'} alt='' width={500} height={700} />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={listItem} className="">
+          <Image src={'/WIL2025.jpg'} alt='' width={500} height={700} />
         </motion.div>
       </motion.div>
     </div>
