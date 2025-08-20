@@ -34,8 +34,8 @@ const data = [
 ]
 const WhyIedc = () => {
     return (
-        <div id='whyiedc' className="bg-white p-10 rounded-b-[120px]">
-            <section className="py-10 screen px-10 mt-10 border-[0.05rem] rounded-[95px] border-primary bg-white">
+        <div id='whyiedc' className="bg-white md:p-10 p-4 rounded-b-[120px]">
+            <section className="md:p-10 px-5 py-10 screen mt-10 border-[0.05rem] rounded-[95px] border-primary bg-white">
                 <h1 className="w-full text-center text-6xl">WHY <span className="text-primary font-semibold">IEDC</span>?</h1>
 
                 <TextGenerateEffect duration={1} className="font-medium text-center text-md" words="Here students take their first step as innovators and entrepreneurs" />

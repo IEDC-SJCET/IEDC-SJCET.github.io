@@ -45,7 +45,7 @@ const Navbar = () => {
                 <Image className='md:w-[280px] sm:w-[240px] w-[190px] ps-10' src={'/logo.png'} alt='logo' width={800} height={800} />
             </FadeContent>
             <div className='flex items-center'>
-                <Link className="border-r-[0.01rem] hover:bg-zinc-100 flex items-center px-10 h-[90px]" href={'https://iedc-admin.vercel.app/'}>LOGIN</Link>
+                <Link className="border-r-[0.01rem] hover:bg-zinc-100 sm:flex hidden items-center px-10 h-[90px]" href={'https://iedc-admin.vercel.app/'}>LOGIN</Link>
 
                 <button type='button' onClick={() => toggleOpen()} className='w-[90px] flex justify-center hover:bg-zinc-100 items-center h-[90px] p-5'><Image alt='' src={'/Menu.png'} width={400} height={400} className='w-[50]' /></button>
             </div>

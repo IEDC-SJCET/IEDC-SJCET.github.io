@@ -62,7 +62,7 @@ export const MenuItem = ({ i, toggleon }: { i: number, toggleon: Cycle }) => {
       border-b-[0.01rem] hover:border-zinc-400 border-zinc-200 sm:mt-3 mt-6"
     >
       {/* <div className="icon-placeholder" style={style} /> */}
-      <Link onClick={() => toggleon()} href={Links[i].link} target={Links[i].link.startsWith("http") ? "_blank" : undefined} className=" text-black w-full md:text-7xl text-5xl mb-5">
+      <Link onClick={() => toggleon()} href={Links[i].link} target={Links[i].link.startsWith("http") ? "_blank" : undefined} className=" text-black w-full md:text-7xl text-4xl mb-5">
         <span className="inline-flex items-end gap-2">
           {Links[i].title}<Dot />
         </span>
