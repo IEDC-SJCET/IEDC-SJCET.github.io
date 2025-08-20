@@ -15,32 +15,34 @@ const pathD = `M1 279.361C56.8159 160.506 211.609 58.3054 423.016 269.767C499.34
 const HeroAnimation = () => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const pathRef = useRef<SVGPathElement | null>(null);
-    const planeRef = useRef<HTMLDivElement | null>(null);
+    const planeRef = useRef<SVGImageElement | null>(null);
 
     useEffect(() => {
         gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
         const path = pathRef.current;
-        const plane = planeRef.current;
+        const plane = planeRef.current as unknown as SVGElement | null;
         const container = containerRef.current;
         if (!path || !plane || !container) return;
 
         const pathLength = (path as SVGPathElement).getTotalLength();
 
-        // prepare stroke for drawing animation
+        // prepare stroke for drawing animation (smoother caps/joins)
         gsap.set(path, {
             strokeDasharray: pathLength,
             strokeDashoffset: pathLength,
             stroke: 'rgba(0,0,0,0.12)',
-            strokeWidth: 2,
+            strokeWidth: 2.5,
             fill: 'transparent',
             strokeLinecap: 'round',
+            strokeLinejoin: 'round',
+            vectorEffect: 'non-scaling-stroke',
         });
 
         // draw animation
         const drawTween = gsap.to(path, {
             strokeDashoffset: 0,
-            duration: 2.5,
+            duration: 3,
             ease: 'power2.out',
             paused: true,
         });
@@ -53,8 +55,8 @@ const HeroAnimation = () => {
                 alignOrigin: [0.5, 0.5],
                 autoRotate: true,
             },
-            duration: 6,
-            ease: 'linear',
+            duration: 5,
+            ease: 'power1.inOut',
             repeat: -1,
             paused: true,
         });
@@ -66,11 +68,12 @@ const HeroAnimation = () => {
             end: 'bottom top',
             onEnter: () => {
                 drawTween.play();
-                planeTween.play();
+                // give draw a small headstart for perceived smoothness
+                gsap.delayedCall(0.2, () => planeTween.play());
             },
             onEnterBack: () => {
                 drawTween.play();
-                planeTween.play();
+                gsap.delayedCall(0.2, () => planeTween.play());
             },
             onLeave: () => {
                 planeTween.pause();
@@ -82,9 +85,13 @@ const HeroAnimation = () => {
             },
         });
 
-        // minor performance hint: ensure will-change set on plane
-        if (plane instanceof HTMLElement) {
-            plane.style.willChange = 'transform';
+        // minor performance hint: ensure will-change set on plane (SVG)
+        try {
+            if (plane && 'style' in plane) {
+                (plane as any).style.willChange = 'transform';
+            }
+        } catch (e) {
+            // ignore
         }
 
         return () => {
@@ -95,29 +102,42 @@ const HeroAnimation = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className="bottom-0 left-0 top-0 right-0 absolute z-[1] mt-[250px] w-full pointer-events-none">
-            <div style={{ position: 'relative' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width={1321} height={420} viewBox="0 0 1321 420" className="w-full min-h-[500px]">
-                    <path ref={pathRef} d={pathD} />
-                </svg>
-
-                <div
-                    ref={planeRef}
-                    style={{
-                        width: 48,
-                        height: 48,
-                        position: 'absolute',
-                        left: 0,
-                        top: 0,
-                        transform: 'translate(-50%, -50%)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        pointerEvents: 'none',
-                    }}
+        <div
+            ref={containerRef}
+            className="bottom-0 left-0 top-0 right-0 absolute z-[1] mt-[250px] w-full pointer-events-none overflow-visible"
+            style={{ overflow: 'visible' }}
+        >
+            <div style={{ position: 'relative', overflow: 'visible' }}>
+                {/* widen viewBox so the curve has horizontal breathing room on desktop */}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={1400}
+                    height={420}
+                    viewBox="0 0 1400 420"
+                    preserveAspectRatio="xMinYMid meet"
+                    className="w-full h-auto"
+                    style={{ overflow: 'visible' }}
                 >
-                    <img src="/smallairplane.png" alt="airplane" width={48} height={48} />
-                </div>
+                    <path
+                        ref={pathRef}
+                        d={pathD}
+                        fill="none"
+                        stroke="rgba(0,0,0,0.12)"
+                        strokeWidth={2.5}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        vectorEffect="non-scaling-stroke"
+                    />
+                    {/* airplane as SVG image so it moves in SVG coordinate space and scales responsively */}
+                    <image
+                        ref={planeRef}
+                        href="/smallairplane.png"
+                        width={80}
+                        height={80}
+                        preserveAspectRatio="xMidYMid meet"
+                        style={{ transform: 'translate(-40px, -40px)', pointerEvents: 'none' }}
+                    />
+                </svg>
             </div>
         </div>
     );
