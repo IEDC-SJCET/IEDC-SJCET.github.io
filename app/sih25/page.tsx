@@ -3,7 +3,7 @@ export default function WedCafe(){
     <div className="w-screen h-screen">
        <iframe
           title="Prayana"
-          src="https://sih2025sjcetpalai.netlify.app/"
+          src="https://tally.so/r/3XjdPL"
           frameBorder="0"
           className="absolute top-0 left-0 h-full w-full border-0 bg-black"
         />
